@@ -1,0 +1,19 @@
+question 4 estimating the threshold voltge and transconductance vds=5v
+
+.include MOSFET_cd4007.txt
+
+vdd 1 0 5v
+rd 2 1 0
+vammeter 2 3 dc 0v
+vgs 4 0 dc 0v
+
+m1 3 4 0 0 NMOS4007
+
+.dc vgs 0 5 0.005
+
+.control
+run
+plot vammeter#branch
+plot sqrt(vammeter#branch)
+.endc
+.end

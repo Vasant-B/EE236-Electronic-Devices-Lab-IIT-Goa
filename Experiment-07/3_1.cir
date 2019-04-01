@@ -1,0 +1,20 @@
+question 3 estimating the threshold voltge and transconductance
+
+.include MOSFET_cd4007.txt
+
+vdd 1 0 0v
+rd 2 1 0
+vammeter 2 3 dc 0v
+vgs 4 0 dc 0v
+m1 3 4 0 0 NMOS4007
+
+*I did not need the use of the 650 ohm and 100 ohm resistor and
+*I directly used voltages sources for vds and vgs
+
+.dc vdd 0 5 0.005
+
+.control
+run
+plot vammeter#branch
+.endc
+.end

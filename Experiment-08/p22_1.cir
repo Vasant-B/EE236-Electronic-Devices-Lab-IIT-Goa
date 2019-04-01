@@ -1,0 +1,22 @@
+part 2 question 2 plot id/vgs characteristics vsb=0
+
+
+.MODEL ALD1107 PMOS 
++ (LEVEL=1 CBD=0.5p CBS=0.5p CGDO=0.1p CGSO=0.1p GAMMA=.45 
++ KP=100u L=10E-6 LAMBDA=0.0304 PHI=.8 VTO=-0.82 W=20E-6)
+
+
+
+vds 1 0 0.2v
+vammeter 2 1 dc 0v
+vgs 3 0 dc 0v
+vsb 4 0 0v
+m1 2 3 0 4 ALD1107
+
+.dc vgs 0 -5 -0.01
+
+.control
+run
+plot vammeter#branch
+.endc
+.end
