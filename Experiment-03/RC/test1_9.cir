@@ -1,0 +1,17 @@
+RC Circuit with square wave with offset f=100,000Hz tran 0.05m 0.05 0.045
+
+
+r1 2 3 1000
+c1 3 0 1u
+.param f = 100000
+.param width = {0.5/f}
+.param period = {1/f}
+
+vin 1 0 pulse(-5 5 0ns 0ns 0ns width period)
+voffset 2 1 dc 5v
+.control
+run
+tran 0.0001m 0.05 0.0499
+plot v(2) v(3)
+.endc
+.end

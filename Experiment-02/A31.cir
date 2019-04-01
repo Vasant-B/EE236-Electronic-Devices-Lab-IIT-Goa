@@ -1,0 +1,26 @@
+Voc and Isc
+
+*two diode equivalent of a solar cell
+.subckt tdeq_solarcell IN OUT rs=0 rsh=100 ic=1
+rs IN 1 {rs}
+rsh 1 OUT {rsh}
+d2 1 OUT diode2
+.model diode2 d (is=(2e-6) n=2)
+d1 1 OUT diode
+.model diode d (is=(1e-13) n=1)
+ic OUT 1 {ic}
+.ends
+
+Xsource 1 0 tdeq_solarcell rs=0 rsh=100 ic=0.008
+vammeter 1 2 dc 0
+ra 3 0 100
+
+.dc ra 0 600 0.5
+
+
+
+.control
+run
+plot  vammeter#branch vs {v(3)}
+.endc
+.end

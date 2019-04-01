@@ -1,0 +1,16 @@
+CR Circuits
+
+
+r1 2 0 1000
+c1 1 2 1u
+
+vin 1 0 dc 0 ac 1
+.ac dec 10 50 50000
+
+.control 
+run
+plot vdb(2) xlog
+plot {57.29*vp(2)} xlog 
+*plot vdb(2) {57.29*vp(2)} xlog
+.endc
+.end

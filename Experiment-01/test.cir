@@ -1,0 +1,17 @@
+IV Characteristics of a yellow LED
+.include yellowLED_5mm.txt
+
+vsource 1 0 dc 10v
+r2 5 2 1000
+r1 2 0 0
+dyellow 2 4 YELLOW
+vammeter 4 3 0v
+ra 3 0 100
+rb 1 5 100
+.dc r1 0 1000 1 r2 1000-r1 1000-r1 0
+.control
+run
+plot abs(vammeter#branch) vs {v(2)-v(4)}
+plot log(abs(vammeter#branch)) vs {v(2)-v(4)}
+.endc
+.end

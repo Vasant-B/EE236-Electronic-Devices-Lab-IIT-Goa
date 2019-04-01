@@ -1,0 +1,17 @@
+CR Circuit with square wave
+
+
+r1 2 0 1000
+c1 1 2 1u
+.param f = 100
+.param width = {0.5/f}
+.param period = {1/f}
+
+vin 1 0 pulse(-5 5 0ns 0ns 0ns width period)
+
+.control
+run
+tran 0.05m 100m
+plot v(1) v(2)
+.endc
+.end

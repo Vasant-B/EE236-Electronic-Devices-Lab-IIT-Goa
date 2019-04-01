@@ -1,0 +1,16 @@
+VOC when rs is 10 and rsh is 100
+
+rs 2 1 10
+rsh 1 0 100
+d2 1 0 diode2
+.model diode2 d (is=(2e-6) n=2)
+d1 1 0 diode
+.model diode d (is=(1e-13) n=1)
+ic 1 0 0.008
+
+
+.control
+run
+print {v(2)-v(0)}
+.endc
+.end

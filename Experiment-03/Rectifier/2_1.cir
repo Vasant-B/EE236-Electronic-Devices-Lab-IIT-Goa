@@ -1,0 +1,15 @@
+rectifier c=4.7u
+.model dio d(is=1.8e-10 rs=2 bv 50.0 ibv=1e-4+ cjo=1e-12 m=0.333 n=2.06 tt=4.32e-9)
+
+vs 1 gnd sin(0 5 500 0 0)
+d1 1 2 
+r1 2 gnd 1000
+c1 2 gnd 4.7u
+.tran 0.001m 10m
+
+
+.control
+run
+plot v(1) v(2)
+.endc
+.end

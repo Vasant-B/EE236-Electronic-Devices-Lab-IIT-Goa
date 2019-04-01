@@ -1,0 +1,12 @@
+CR Circuits
+
+vin 1 0 sin (0 5 50 0 0)
+r1 2 0 1000
+c1 1 2 1u
+
+
+.control
+tran 0.02m 0.35
+plot v(1) v(2)
+.endc
+.end

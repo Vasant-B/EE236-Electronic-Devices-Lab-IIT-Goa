@@ -1,0 +1,7 @@
+IV Characteristics of a Red LED
+
+.include redLED_5mm
+
+vsource 1 0 dc 10v
+ra 1 2 100
+rb 4 0 100

@@ -1,0 +1,15 @@
+rectifier
+.include Diode_1N914.txt
+
+vs 1 0 sin(0 10 500 0 0)
+d1 1 2 1N914
+rl 2 0 1k
+
+
+.control
+tran 0.02m 4m
+run
+plot v(1) v(2)
+plot {v(2)/1000}
+.endc
+.end

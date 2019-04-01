@@ -1,0 +1,15 @@
+RC Circuits
+
+
+r1 2 0 1000
+c1 1 2 1u
+vin 1 0 dc 0 ac 1
+.ac dec 100 50 50000
+.control 
+run
+*tran 0.02m 0.35
+plot v(2) v(1)
+plot vdb(2) xlog
+plot {57.29*vp(2)} xlog 
+.endc
+.end

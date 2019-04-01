@@ -1,0 +1,21 @@
+RC Circuits
+
+
+r1 2 3 1000
+c1 3 0 1u
+ain 2 0 pulse1 
+.model pulse1 square(cntl_array = [0] 
++ freq_array=[100] out_low = -5 
++ out_high = 5)
+
+
+.control
+run
+*tran 0.01 0.4
+*plot v(2)
+*plot v(3)
+*plot v(2) vs v(3)
+*plot v(2) and v(3)
+plot v(2) v(3)
+.endc
+.end

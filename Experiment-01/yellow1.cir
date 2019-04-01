@@ -1,0 +1,49 @@
+IV Characteristics of an LED
+
+*including the library
+.include blueLED_5mm.txt
+.include greenLED_5mm.txt
+.include redLED_5mm.txt
+.include whiteLED_5mm.txt
+.include yellowLED_5mm.txt
+
+
+*Voltage source bw 0 and 1
+vsource 1 0 dc 10v
+
+*r1 varies from 1099 to 101
+*r2 varies from 1 to 999
+*r1 1 2 1099
+*r2 2 0 1
+
+r2 5 2 1000
+r1 2 0 0
+
+
+
+
+dyellow 2 4 YELLOW
+
+*0 volts source to measure current
+vammeter 4 3 0v
+
+ra 3 0 100
+rb 1 5 100
+
+
+
+*.dc r1 1099 101 -1 r2 {1100-r1} {1100-r1} 0
+
+.dc r1 0 1000 1 r2 1000-r1 1000-r1 0
+
+
+
+.control
+run
+plot abs(vammeter#branch) vs {v(2)-v(4)}
+plot {abs(v(3))/100} vs {v(2)-v(4)} 
+*label y "Log(I)"
+*label x "Vd"
+
+.endc
+.end

@@ -1,0 +1,13 @@
+rectifier
+.include Diode_1N914.txt
+
+vs 1 gnd sin(0 10 500 0 0)
+d1 1 2 1N914
+r1 2 gnd 1000
+c1 2 gnd 4.7u
+ 
+.control
+plot v(1) v(2)
+plot {v(2)/1000}
+.endc
+.end
